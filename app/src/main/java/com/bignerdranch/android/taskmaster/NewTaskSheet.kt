@@ -41,6 +41,7 @@ class NewTaskSheet() : BottomSheetDialogFragment(){
                binding.title.setText("")
                binding.description.setText("")
                setFragmentResult("requestKey" , bundleOf("bundleKey" to todo))
+                dismiss()
 
            }
 
