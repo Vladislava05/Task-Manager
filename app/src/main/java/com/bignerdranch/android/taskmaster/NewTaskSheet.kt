@@ -1,17 +1,17 @@
 package com.bignerdranch.android.taskmaster
 
+import android.app.DatePickerDialog
 import android.os.Bundle
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.core.os.bundleOf
 import androidx.fragment.app.setFragmentResult
 
 import com.bignerdranch.android.taskmaster.databinding.FragmentNewTaskSheetBinding
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-
+import java.util.*
 
 
 class NewTaskSheet() : BottomSheetDialogFragment(){
@@ -34,7 +34,17 @@ class NewTaskSheet() : BottomSheetDialogFragment(){
     override fun onViewCreated(view:View,savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
-            todo = Todo(title="",description="",isChecked = false)
+            todo = Todo(title ="", description ="", isChecked = false, date ="")
+            binding.date.setOnClickListener{
+                val c = Calendar.getInstance()
+                val year = c.get(Calendar.YEAR)
+                val month = c.get(Calendar.MONTH)
+                val day = c.get(Calendar.DAY_OF_MONTH)
+
+            }
+
+
+
             binding.btnSave.setOnClickListener {
                todo.title=binding.title.text.toString()
 
