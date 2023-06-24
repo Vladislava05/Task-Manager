@@ -51,9 +51,9 @@ class TodoAdapter(
           holder.itemView.apply{
 
               val tvTodoTitle = findViewById(R.id.tvTodoTitle) as TextView
-
+              val tvTodoDate = findViewById(R.id.tvTodoDate) as TextView
               tvTodoTitle.text = curTodo.title
-
+              tvTodoDate.text=curTodo.date
 
               val cbDone = findViewById(R.id.cbDone) as CheckBox
               cbDone.isChecked = curTodo.isChecked

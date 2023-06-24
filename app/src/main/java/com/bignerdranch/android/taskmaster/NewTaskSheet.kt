@@ -12,6 +12,7 @@ import androidx.fragment.app.setFragmentResult
 import com.bignerdranch.android.taskmaster.databinding.FragmentNewTaskSheetBinding
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import java.util.*
+import javax.xml.datatype.DatatypeConstants.MONTHS
 
 
 class NewTaskSheet() : BottomSheetDialogFragment(){
@@ -40,6 +41,11 @@ class NewTaskSheet() : BottomSheetDialogFragment(){
                 val year = c.get(Calendar.YEAR)
                 val month = c.get(Calendar.MONTH)
                 val day = c.get(Calendar.DAY_OF_MONTH)
+                val datePicker = DatePickerDialog(this,DatePickerDialog.OnDateSetListener { view, year, month, day ->
+                      binding.date.setText("" + day + " " + month + ", " + year)
+
+                }, year, month, day)
+                datePicker.show()
 
             }
 
@@ -47,9 +53,10 @@ class NewTaskSheet() : BottomSheetDialogFragment(){
 
             binding.btnSave.setOnClickListener {
                todo.title=binding.title.text.toString()
-
+               todo.date=binding.date.text.toString()
                binding.title.setText("")
                binding.description.setText("")
+                binding.date.setText("")
                setFragmentResult("requestKey" , bundleOf("bundleKey" to todo))
                 dismiss()
 
