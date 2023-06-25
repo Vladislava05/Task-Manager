@@ -1,7 +1,7 @@
 package com.bignerdranch.android.taskmaster
 
 
-import android.app.DatePickerDialog
+
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
@@ -9,8 +9,7 @@ import android.os.Bundle
 
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bignerdranch.android.taskmaster.databinding.ActivityMainBinding
-import java.util.*
-import java.util.logging.Logger.global
+
 
 
 class MainActivity : AppCompatActivity() {
