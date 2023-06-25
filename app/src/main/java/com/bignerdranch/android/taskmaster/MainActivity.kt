@@ -2,6 +2,7 @@ package com.bignerdranch.android.taskmaster
 
 
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
@@ -39,6 +40,11 @@ class MainActivity : AppCompatActivity() {
             val newTodo=bundle.getSerializable("bundleKey") as Todo
             todos.add(newTodo)
             todoAdapter.notifyDataSetChanged()
+        }
+
+        binding.btnTodoDone.setOnClickListener{
+            val intent = Intent(this, SecondActivity::class.java)
+            startActivity(intent)
         }
 
     }
