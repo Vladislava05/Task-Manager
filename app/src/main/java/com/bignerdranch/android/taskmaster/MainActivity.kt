@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var todoAdapter:TodoAdapter
     private lateinit var binding: ActivityMainBinding
     private var todos: MutableList<Todo> = mutableListOf()
-
+    private var dones: MutableList<Todo> = mutableListOf()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
 
 
 
-        todoAdapter = TodoAdapter(todos)
+        todoAdapter = TodoAdapter(todos, dones)
         binding.rvTodoItems.adapter = todoAdapter
         binding.rvTodoItems.layoutManager = LinearLayoutManager(this)
 
@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, SecondActivity::class.java)
             startActivity(intent)
         }
-
+        binding.btnTodoDone.text="Done"+"(${dones.size.toString()})"
     }
 
 

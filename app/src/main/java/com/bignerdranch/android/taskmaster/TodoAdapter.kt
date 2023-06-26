@@ -18,7 +18,7 @@ import com.bignerdranch.android.taskmaster.databinding.ItemTodoBinding
 
 
 class TodoAdapter(
-    private var todos: MutableList<Todo>
+    private var todos: MutableList<Todo>, private var dones: MutableList<Todo>
 ):RecyclerView.Adapter<TodoAdapter.TodoViewHolder>() {
 
     class TodoViewHolder( ItemTodoBinding: ItemTodoBinding): RecyclerView.ViewHolder(ItemTodoBinding.root)
@@ -68,10 +68,14 @@ class TodoAdapter(
 
               cbDone.setOnClickListener(View.OnClickListener{
 
+
                       todos.removeAll{todo->
                           todo.isChecked
-                      }
 
+                      }
+                      if(curTodo.isChecked) {
+                          dones.add(curTodo)
+                      }
                       notifyDataSetChanged()
 
 
