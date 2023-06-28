@@ -43,6 +43,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.btnTodoDone.setOnClickListener{
+
             val intent = Intent(this, SecondActivity::class.java)
             startActivity(intent)
         }

@@ -67,20 +67,16 @@ class TodoAdapter(
 
 
               cbDone.setOnClickListener(View.OnClickListener{
-
-
-                      todos.removeAll{todo->
+                  todos.removeAll{todo->
                           todo.isChecked
 
                       }
-                      if(curTodo.isChecked) {
-                          dones.add(curTodo)
-                      }
+                  dones.add(curTodo)
+
                       notifyDataSetChanged()
 
-
-
               })
+
 
 
         }
