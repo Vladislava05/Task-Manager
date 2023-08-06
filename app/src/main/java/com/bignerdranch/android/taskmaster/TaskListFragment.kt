@@ -23,12 +23,14 @@ class TaskListFragment : Fragment(R.layout.fragment_task_list) {
         super.onCreate(savedInstanceState)
         val appDatabase = AppDatabase.getInstance(this.requireActivity())
         todoDao = appDatabase.todoDao()
-        val task = Todo(title = "Заголовок", description = "Описание", date="1/12/23", isChecked = false)
-        GlobalScope.launch {
-            todoDao.insert(task)
-        }
-        todoDao.getAllTasks().observe(this, Observer { tasks ->
+        todoDao.getAllTasks().observe(this, Observer { todoList ->
+            todos.clear()
+            todos.addAll(todoList)
+            todoAdapter.notifyDataSetChanged()
+
         })
+
+
     }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -50,7 +52,9 @@ class TaskListFragment : Fragment(R.layout.fragment_task_list) {
             this
         ) { requestKey, bundle ->
             val newTodo = bundle.getSerializable("bundleKey") as Todo
-            todos.add(newTodo)
+            GlobalScope.launch {
+                todoDao.insert(newTodo)
+            }
             todoAdapter.notifyDataSetChanged()
         }
     }
