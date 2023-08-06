@@ -4,6 +4,7 @@ import android.graphics.Paint.STRIKE_THRU_TEXT_FLAG
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.CheckBox
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -41,6 +42,7 @@ class TodoAdapter(
               val tvTodoTitle = findViewById(R.id.tvTodoTitle) as TextView
               tvTodoTitle.text = curTodo.title
               val cbDone = findViewById(R.id.cbDone) as CheckBox
+              val deleteBtn = findViewById(R.id.deleteBtn) as Button
               cbDone.isChecked = curTodo.isChecked
               toggleStrikeThrough(tvTodoTitle, curTodo.isChecked)
               cbDone.setOnCheckedChangeListener { _, isChecked ->
@@ -51,7 +53,6 @@ class TodoAdapter(
               cbDone.setOnClickListener(View.OnClickListener{
                       todos.removeAll { todo ->
                           todo.isChecked
-
 
                       }
                       notifyDataSetChanged()

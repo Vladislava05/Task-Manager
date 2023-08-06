@@ -49,8 +49,6 @@ class NewTaskSheet() : BottomSheetDialogFragment(){
 
             }
 
-
-
             binding.btnSave.setOnClickListener {
                todo.title=binding.title.text.toString()
                todo.date=binding.date.text.toString()
