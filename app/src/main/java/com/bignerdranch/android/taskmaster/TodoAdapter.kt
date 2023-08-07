@@ -9,12 +9,13 @@ import android.widget.CheckBox
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bignerdranch.android.taskmaster.databinding.ItemTodoBinding
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 
 class TodoAdapter(
-    private var todos: MutableList<Todo>
+    private var todos: MutableList<Todo>, private val todoDao: TodoDao
 ):RecyclerView.Adapter<TodoAdapter.TodoViewHolder>() {
-
     class TodoViewHolder( ItemTodoBinding: ItemTodoBinding): RecyclerView.ViewHolder(ItemTodoBinding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TodoViewHolder {
@@ -26,8 +27,6 @@ class TodoAdapter(
             return TodoViewHolder(ItemTodoBinding)
         )
     }
-
-
     private fun toggleStrikeThrough(tvTodoTitle: TextView, isChecked:Boolean){
         if(isChecked){
             tvTodoTitle.paintFlags = tvTodoTitle.paintFlags or STRIKE_THRU_TEXT_FLAG
@@ -49,11 +48,12 @@ class TodoAdapter(
                   toggleStrikeThrough(tvTodoTitle, isChecked)
                   curTodo.isChecked = !curTodo.isChecked
               }
-
               cbDone.setOnClickListener(View.OnClickListener{
+                  GlobalScope.launch {
+                      todoDao.update(curTodo)
+                  }
                       todos.removeAll { todo ->
                           todo.isChecked
-
                       }
                       notifyDataSetChanged()
               })

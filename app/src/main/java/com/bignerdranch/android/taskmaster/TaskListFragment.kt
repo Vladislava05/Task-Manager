@@ -30,7 +30,6 @@ class TaskListFragment : Fragment(R.layout.fragment_task_list) {
 
         })
 
-
     }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,7 +40,7 @@ class TaskListFragment : Fragment(R.layout.fragment_task_list) {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        todoAdapter = TodoAdapter(todos)
+        todoAdapter = TodoAdapter(todos, todoDao)
         binding.rvTodoItems.adapter = todoAdapter
         binding.rvTodoItems.layoutManager = LinearLayoutManager(this.activity)
         binding.btnAddTodo.setOnClickListener {
