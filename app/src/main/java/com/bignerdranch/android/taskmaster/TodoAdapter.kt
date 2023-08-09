@@ -1,5 +1,6 @@
 package com.bignerdranch.android.taskmaster
 
+import android.app.AlertDialog
 import android.graphics.Paint.STRIKE_THRU_TEXT_FLAG
 import android.view.LayoutInflater
 import android.view.View
@@ -51,12 +52,20 @@ class TodoAdapter(
               cbDone.setOnClickListener(View.OnClickListener{
                   GlobalScope.launch {
                       todoDao.update(curTodo)
+                      todoDao.delete(curTodo)
                   }
                       todos.removeAll { todo ->
                           todo.isChecked
                       }
                       notifyDataSetChanged()
               })
+
+              deleteBtn.setOnClickListener{
+                  GlobalScope.launch {
+                      todoDao.delete(curTodo)
+                  }
+                  notifyDataSetChanged()
+              }
         }
     }
 

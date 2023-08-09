@@ -1,11 +1,12 @@
 package com.bignerdranch.android.taskmaster
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bignerdranch.android.taskmaster.databinding.FragmentTaskListBinding
 import kotlinx.coroutines.GlobalScope
@@ -56,6 +57,12 @@ class TaskListFragment : Fragment(R.layout.fragment_task_list) {
             }
             todoAdapter.notifyDataSetChanged()
         }
+        binding.rvTodoItems.addItemDecoration(
+            DividerItemDecoration(
+                binding.rvTodoItems.getContext(),
+                DividerItemDecoration.VERTICAL
+            )
+        )
     }
     override fun onDestroyView() {
         super.onDestroyView()

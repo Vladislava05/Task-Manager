@@ -13,7 +13,8 @@
         android:layout_height="wrap_content"
         android:text="Example"
         android:textSize="24sp"
-        android:textColor="#FFF"
+        android:fontFamily="serif-monospace"
+        android:textColor="#252A31"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/cbDone"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,7 +27,7 @@
         android:layout_height="32dp"
         android:layout_marginTop="2dp"
         android:layout_marginEnd="10dp"
-        android:buttonTint="#FFF"
+        android:buttonTint="#252A31"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/deleteBtn"
         app:layout_constraintTop_toTopOf="parent" />
@@ -40,14 +41,14 @@
         android:layout_marginEnd="4dp"
         android:layout_marginBottom="32dp"
         android:text="Delete"
-        android:textColor="#FFF"
+        android:textColor="#F45E6D"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.567"
-        app:rippleColor="#D30000"
-        app:strokeColor="#D30000" />
+        app:rippleColor="#F45E6D"
+        />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
