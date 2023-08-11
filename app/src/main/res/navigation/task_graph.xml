@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/task_graph"
+    app:startDestination="@id/taskListFragment">
+
+    <fragment
+        android:id="@+id/taskListFragment"
+        android:name="com.bignerdranch.android.taskmaster.TaskListFragment"
+        android:label="TaskListFragment" />
+    <fragment
+        android:id="@+id/taskDetailFragment"
+        android:name="com.bignerdranch.android.taskmaster.TaskDetailFragment"
+        android:label="TaskDetailFragment">
+        <deepLink
+            android:id="@+id/deepLink"
+            app:uri="app://taskmaster.taskDetailFragment" />
+    </fragment>
+</navigation>

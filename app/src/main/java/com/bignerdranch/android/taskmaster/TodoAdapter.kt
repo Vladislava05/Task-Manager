@@ -1,6 +1,5 @@
 package com.bignerdranch.android.taskmaster
 
-import android.app.AlertDialog
 import android.graphics.Paint.STRIKE_THRU_TEXT_FLAG
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +7,11 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.TextView
+import androidx.core.net.toUri
+import androidx.navigation.NavDeepLinkRequest
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
+
 import androidx.recyclerview.widget.RecyclerView
 import com.bignerdranch.android.taskmaster.databinding.ItemTodoBinding
 import kotlinx.coroutines.GlobalScope
@@ -65,6 +69,12 @@ class TodoAdapter(
                       todoDao.delete(curTodo)
                   }
                   notifyDataSetChanged()
+              }
+              tvTodoTitle.setOnClickListener {
+                  val request = NavDeepLinkRequest.Builder
+                      .fromUri(TaskListFragment.TASK_DETAIL_URI.toUri())
+                      .build()
+                  findNavController().navigate(request)
               }
         }
     }
