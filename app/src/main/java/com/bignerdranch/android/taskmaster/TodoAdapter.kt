@@ -13,6 +13,9 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 
 import androidx.recyclerview.widget.RecyclerView
+import com.bignerdranch.android.taskmaster.Constants.TASK_BUNDLE_KEY
+import com.bignerdranch.android.taskmaster.Constants.TASK_DATE_BUNDLE_KEY
+import com.bignerdranch.android.taskmaster.TaskListFragment.Companion.TASK_DETAIL_URI
 import com.bignerdranch.android.taskmaster.databinding.ItemTodoBinding
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -72,7 +75,7 @@ class TodoAdapter(
               }
               tvTodoTitle.setOnClickListener {
                   val request = NavDeepLinkRequest.Builder
-                      .fromUri(TaskListFragment.TASK_DETAIL_URI.toUri())
+                      .fromUri("${TASK_DETAIL_URI}?${TASK_BUNDLE_KEY}=${curTodo.title}&${TASK_DATE_BUNDLE_KEY}=${curTodo.date}".toUri())
                       .build()
                   findNavController().navigate(request)
               }

@@ -78,6 +78,6 @@ class TaskListFragment : Fragment(R.layout.fragment_task_list) {
     }
 
     companion object{
-        const val TASK_DETAIL_URI = "app://taskmaster.TASK_DETAIL_FRAGMENT"
+        const val TASK_DETAIL_URI = "app://taskmaster.taskDetailFragment"
     }
 }
