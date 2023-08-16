@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavDeepLinkRequest
 import androidx.navigation.Navigation
@@ -24,6 +25,7 @@ class TaskListFragment : Fragment(R.layout.fragment_task_list) {
     private lateinit var todoAdapter: TodoAdapter
     private var _binding: FragmentTaskListBinding? = null
     private lateinit var todoDao: TodoDao
+    private lateinit var viewModel: TodoViewModel
     private val binding: FragmentTaskListBinding
         get() = checkNotNull(_binding)
     private var todos: MutableList<Todo> = mutableListOf()
@@ -31,7 +33,9 @@ class TaskListFragment : Fragment(R.layout.fragment_task_list) {
         super.onCreate(savedInstanceState)
         val appDatabase = AppDatabase.getInstance(this.requireActivity())
         todoDao = appDatabase.todoDao()
-        todoDao.getAllTasks().observe(this, Observer { todoList ->
+        var repository = TaskRepository(todoDao)
+        viewModel = ViewModelProvider(this, TodoViewModelFactory(repository)).get(TodoViewModel::class.java)
+        repository.allTasks.observe(this, Observer { todoList ->
             todos.clear()
             todos.addAll(todoList)
             todoAdapter.notifyDataSetChanged()
@@ -48,7 +52,7 @@ class TaskListFragment : Fragment(R.layout.fragment_task_list) {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        todoAdapter = TodoAdapter(todos, todoDao)
+        todoAdapter = TodoAdapter(todos,viewModel)
         binding.rvTodoItems.adapter = todoAdapter
         binding.rvTodoItems.layoutManager = LinearLayoutManager(this.activity)
         binding.btnAddTodo.setOnClickListener {
@@ -60,7 +64,7 @@ class TaskListFragment : Fragment(R.layout.fragment_task_list) {
         ) { requestKey, bundle ->
             val newTodo = bundle.getSerializable("bundleKey") as Todo
             GlobalScope.launch {
-                todoDao.insert(newTodo)
+                viewModel.insert(newTodo)
             }
             todoAdapter.notifyDataSetChanged()
         }

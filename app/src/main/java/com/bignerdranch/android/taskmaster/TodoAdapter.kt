@@ -15,6 +15,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.recyclerview.widget.RecyclerView
 import com.bignerdranch.android.taskmaster.Constants.TASK_BUNDLE_KEY
 import com.bignerdranch.android.taskmaster.Constants.TASK_DATE_BUNDLE_KEY
+import com.bignerdranch.android.taskmaster.Constants.TASK_DESCR_BUNDLE_KEY
 import com.bignerdranch.android.taskmaster.TaskListFragment.Companion.TASK_DETAIL_URI
 import com.bignerdranch.android.taskmaster.databinding.ItemTodoBinding
 import kotlinx.coroutines.GlobalScope
@@ -22,7 +23,8 @@ import kotlinx.coroutines.launch
 
 
 class TodoAdapter(
-    private var todos: MutableList<Todo>, private val todoDao: TodoDao
+    private var todos: MutableList<Todo>,
+    private val viewModel: TodoViewModel
 ):RecyclerView.Adapter<TodoAdapter.TodoViewHolder>() {
     class TodoViewHolder( ItemTodoBinding: ItemTodoBinding): RecyclerView.ViewHolder(ItemTodoBinding.root)
 
@@ -58,8 +60,8 @@ class TodoAdapter(
               }
               cbDone.setOnClickListener(View.OnClickListener{
                   GlobalScope.launch {
-                      todoDao.update(curTodo)
-                      todoDao.delete(curTodo)
+                      viewModel.update(curTodo)
+                      viewModel.delete(curTodo)
                   }
                       todos.removeAll { todo ->
                           todo.isChecked
@@ -69,15 +71,17 @@ class TodoAdapter(
 
               deleteBtn.setOnClickListener{
                   GlobalScope.launch {
-                      todoDao.delete(curTodo)
+                      viewModel.delete(curTodo)
                   }
                   notifyDataSetChanged()
               }
+
               tvTodoTitle.setOnClickListener {
                   val request = NavDeepLinkRequest.Builder
-                      .fromUri("${TASK_DETAIL_URI}?${TASK_BUNDLE_KEY}=${curTodo.title}&${TASK_DATE_BUNDLE_KEY}=${curTodo.date}".toUri())
+                      .fromUri("${TASK_DETAIL_URI}?${TASK_BUNDLE_KEY}=${curTodo.title}&${TASK_DATE_BUNDLE_KEY}=${curTodo.date}&${TASK_DESCR_BUNDLE_KEY}=${curTodo.description}".toUri())
                       .build()
                   findNavController().navigate(request)
+
               }
         }
     }

@@ -14,8 +14,9 @@
         android:label="TaskDetailFragment">
         <deepLink
             android:id="@+id/deepLink"
-            app:uri="app://taskmaster.taskDetailFragment?taskBundleKey={taskBundleKey}&amp;taskDateBundleKey={taskDateBundleKey}"/>
+            app:uri="app://taskmaster.taskDetailFragment?taskBundleKey={taskBundleKey}&amp;taskDateBundleKey={taskDateBundleKey}&amp;taskDescrBundleKey={taskDescrBundleKey}"/>
         <argument android:name="taskBundleKey" app:argType="string"/>
         <argument android:name = "taskDateBundleKey" app:argType="string"/>
+        <argument android:name="taskDescrBundleKey" app:argType="String"/>
     </fragment>
 </navigation>
