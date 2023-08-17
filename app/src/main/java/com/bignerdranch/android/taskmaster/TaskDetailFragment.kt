@@ -6,9 +6,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.net.toUri
+import androidx.navigation.NavDeepLinkRequest
+import androidx.navigation.fragment.findNavController
 import com.bignerdranch.android.taskmaster.Constants.TASK_BUNDLE_KEY
 import com.bignerdranch.android.taskmaster.Constants.TASK_DATE_BUNDLE_KEY
 import com.bignerdranch.android.taskmaster.Constants.TASK_DESCR_BUNDLE_KEY
+import com.bignerdranch.android.taskmaster.TodoAdapter.Companion.TASK_LIST_URI
 import com.bignerdranch.android.taskmaster.databinding.FragmentTaskDetailBinding
 
 
@@ -39,5 +43,11 @@ class TaskDetailFragment : Fragment() {
         binding.selectedDate.text = date
         binding.selectedDescription.text = descr
 
+        binding.btnBack.setOnClickListener {
+            val request = NavDeepLinkRequest.Builder
+                .fromUri(TASK_LIST_URI.toUri())
+                .build()
+            findNavController().navigate(request)
+        }
     }
 }

@@ -5,17 +5,33 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
+    <Button
+        android:id="@+id/btnBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="11dp"
+        android:layout_marginBottom="52dp"
+        android:background="@drawable/baseline_arrow_back_24"
+        app:layout_constraintBottom_toTopOf="@+id/date"
+        app:layout_constraintEnd_toStartOf="@+id/task_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/task_title"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_width="243dp"
+        android:layout_height="44dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="32dp"
         android:fontFamily="sans-serif-medium"
         android:text="Example"
         android:textColor="#252A31"
         android:textSize="32sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.631"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -38,11 +54,13 @@
         android:id="@+id/selectedDate"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
-        android:layout_marginTop="85dp"
+        android:layout_marginTop="61dp"
+        android:fontFamily="serif-monospace"
         android:text="1/12/23"
         android:textColor="#252A31"
         android:textSize="28sp"
         app:layout_constraintEnd_toEndOf="@+id/date"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/task_title" />
 
@@ -62,17 +80,35 @@
 
     <TextView
         android:id="@+id/selectedDescription"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_width="343dp"
+        android:layout_height="186dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="43dp"
         android:layout_marginBottom="221dp"
+        android:background="@drawable/border"
+        android:fontFamily="serif-monospace"
+        android:padding="3dp"
         android:text="nbbkjbjkbbjbjkkb"
         android:textColor="#252A31"
         android:textSize="28sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.227"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/description" />
+        app:layout_constraintTop_toBottomOf="@+id/description"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/btnEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edit"
+        android:textSize="28sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/selectedDescription"
+        android:backgroundTint="#252A31"
+        android:textColor="#FFF"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
