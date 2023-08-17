@@ -12,8 +12,6 @@ import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.launch
 
 class TodoViewModel(private val repository: TaskRepository): ViewModel() {
-    private val _navDeepLinkRequest = MutableSharedFlow<NavDeepLinkRequest>()
-    val navDeepLinkRequest: SharedFlow<NavDeepLinkRequest> = _navDeepLinkRequest
     fun insert(todo: Todo) = viewModelScope.launch {
         repository.insert(todo)
     }

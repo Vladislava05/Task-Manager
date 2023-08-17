@@ -80,6 +80,7 @@ class TodoAdapter(
                   val request = NavDeepLinkRequest.Builder
                       .fromUri("${TASK_DETAIL_URI}?${TASK_BUNDLE_KEY}=${curTodo.title}&${TASK_DESCR_BUNDLE_KEY}=${curTodo.description}&${TASK_DATE_BUNDLE_KEY}=${curTodo.date}".toUri())
                       .build()
+                  Log.d("MyApp", curTodo.description)
                   findNavController().navigate(request)
 
 
