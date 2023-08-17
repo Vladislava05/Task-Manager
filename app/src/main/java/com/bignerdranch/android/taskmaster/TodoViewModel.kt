@@ -26,19 +26,6 @@ class TodoViewModel(private val repository: TaskRepository): ViewModel() {
         repository.delete(todo)
     }
 
-    fun onTaskClickListener(todo: Todo) {
-        val request = NavDeepLinkRequest.Builder.fromUri(
-            (
-                    "${TaskListFragment.TASK_DETAIL_URI}?${Constants.TASK_BUNDLE_KEY}=${todo.title}" +
-                            "&${Constants.TASK_DATE_BUNDLE_KEY}=${todo.date}"
-                    )
-                .toUri()
-        ).build()
-        viewModelScope.launch {
-            _navDeepLinkRequest.emit(request)
-        }
-    }
-
 }
 class TodoViewModelFactory(private val repository: TaskRepository) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {

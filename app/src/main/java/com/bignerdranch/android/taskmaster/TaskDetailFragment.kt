@@ -1,6 +1,7 @@
 package com.bignerdranch.android.taskmaster
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -17,12 +18,6 @@ class TaskDetailFragment : Fragment() {
         get() = checkNotNull(_binding)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val title = arguments?.getString(TASK_BUNDLE_KEY)
-        val date = arguments?.getString(TASK_DATE_BUNDLE_KEY)
-        val descr = arguments?.getString(TASK_DESCR_BUNDLE_KEY)
-        binding.taskTitle.setText(title.toString())
-        binding.selectedDate.setText(date.toString())
-        binding.selectedDescription.setText(descr.toString())
     }
 
     override fun onCreateView(
@@ -31,6 +26,18 @@ class TaskDetailFragment : Fragment() {
     ): View? {
         _binding = FragmentTaskDetailBinding.inflate(inflater, container, false)
         return binding.root
+
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val title = arguments?.getString(TASK_BUNDLE_KEY)
+        val date = arguments?.getString(TASK_DATE_BUNDLE_KEY)
+        val descr = arguments?.getString(TASK_DESCR_BUNDLE_KEY)
+        Log.d("MyApp", descr.toString())
+        binding.taskTitle.text = title
+        binding.selectedDate.text = date
+        binding.selectedDescription.text = descr
 
     }
 }

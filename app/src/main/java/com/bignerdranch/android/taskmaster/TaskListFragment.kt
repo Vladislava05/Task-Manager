@@ -80,8 +80,4 @@ class TaskListFragment : Fragment(R.layout.fragment_task_list) {
         super.onDestroyView()
         _binding = null
     }
-
-    companion object{
-        const val TASK_DETAIL_URI = "app://taskmaster.taskDetailFragment"
-    }
 }
