@@ -12,6 +12,9 @@ import androidx.navigation.fragment.findNavController
 import com.bignerdranch.android.taskmaster.Constants.TASK_BUNDLE_KEY
 import com.bignerdranch.android.taskmaster.Constants.TASK_DATE_BUNDLE_KEY
 import com.bignerdranch.android.taskmaster.Constants.TASK_DESCR_BUNDLE_KEY
+import com.bignerdranch.android.taskmaster.Constants.TASK_EDIT_BUNDLE_KEY
+import com.bignerdranch.android.taskmaster.Constants.TASK_EDIT_DATE_BUNDLE_KEY
+import com.bignerdranch.android.taskmaster.Constants.TASK_EDIT_DESCR_BUNDLE_KEY
 import com.bignerdranch.android.taskmaster.TodoAdapter.Companion.TASK_LIST_URI
 import com.bignerdranch.android.taskmaster.databinding.FragmentTaskDetailBinding
 
@@ -49,5 +52,12 @@ class TaskDetailFragment : Fragment() {
                 .build()
             findNavController().navigate(request)
         }
+        binding.btnEdit.setOnClickListener {
+            val request = NavDeepLinkRequest.Builder
+                .fromUri("${TodoAdapter.TASK_EDIT_URI}?${TASK_BUNDLE_KEY}=${title}&${TASK_DESCR_BUNDLE_KEY}=${descr}&${TASK_DATE_BUNDLE_KEY}=${date}".toUri())
+                .build()
+            findNavController().navigate(request)
+        }
+
     }
 }

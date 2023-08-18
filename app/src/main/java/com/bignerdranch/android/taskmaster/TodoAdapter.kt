@@ -111,6 +111,7 @@ class TodoAdapter(
     companion object{
         const val TASK_DETAIL_URI = "app://taskmaster.taskDetailFragment"
         const val TASK_LIST_URI ="app://taskmaster.taskListFragment"
+        const val TASK_EDIT_URI="app://taskmaster.taskEditFragment"
     }
 
 }

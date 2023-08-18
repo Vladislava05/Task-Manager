@@ -23,4 +23,16 @@
         <argument android:name="taskDateBundleKey" app:argType="string"/>
         <argument android:name="taskDescrBundleKey" app:argType="string"/>
     </fragment>
+    <fragment
+        android:id="@+id/taskEditFragment"
+        android:name="com.bignerdranch.android.taskmaster.TaskEditFragment"
+        android:label="TaskEditFragment">
+
+        <deepLink
+            android:id="@+id/deepLink3"
+            app:uri="app://taskmaster.taskEditFragment?taskBundleKey={taskBundleKey}&amp;taskDateBundleKey={taskDateBundleKey}&amp;taskDescrBundleKey={taskDescrBundleKey}" />
+        <argument android:name="taskBundleKey" app:argType="string"/>
+        <argument android:name="taskDateBundleKey" app:argType="string"/>
+        <argument android:name="taskDescrBundleKey" app:argType="string"/>
+    </fragment>
 </navigation>
