@@ -28,8 +28,6 @@
             android:hint="Title"/>
 
 
-
-
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -43,7 +41,6 @@
             android:layout_height="match_parent"
             android:id="@+id/description"
             android:hint="Description"/>
-
 
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -68,8 +65,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:fontFamily="sans-serif-medium"
         android:layout_marginHorizontal="20dp"
         android:layout_marginVertical="300dp"
+        android:backgroundTint="#252A31"
+        android:textColor="#FFF"
         android:text="Save"
         android:id="@+id/btnSave"/>
 

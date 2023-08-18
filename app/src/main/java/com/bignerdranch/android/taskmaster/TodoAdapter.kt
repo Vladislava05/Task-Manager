@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.core.net.toUri
 import androidx.navigation.NavDeepLinkRequest
 import androidx.navigation.findNavController
@@ -70,9 +72,22 @@ class TodoAdapter(
               })
 
               deleteBtn.setOnClickListener{
-                  GlobalScope.launch {
-                      viewModel.delete(curTodo)
+                  val alertDialogBuilder = AlertDialog.Builder(this.context)
+                  alertDialogBuilder.setMessage("Do you want to delete this task?")
+                  alertDialogBuilder.setPositiveButton("Yes"){
+                          dialogInterface, which ->
+                      Toast.makeText(context,"Delete",Toast.LENGTH_LONG).show()
+                      GlobalScope.launch {
+                          viewModel.delete(curTodo)
+                      }
                   }
+                  alertDialogBuilder.setNegativeButton("No"){
+                          dialogInterface, which ->
+                      Toast.makeText(context,"Cancelled",Toast.LENGTH_LONG).show()
+                  }
+                  val alertDialog: AlertDialog = alertDialogBuilder.create()
+                  alertDialog.setCancelable(false)
+                  alertDialog.show()
                   notifyDataSetChanged()
               }
 
