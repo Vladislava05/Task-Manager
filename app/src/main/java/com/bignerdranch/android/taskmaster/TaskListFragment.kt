@@ -1,6 +1,7 @@
 package com.bignerdranch.android.taskmaster
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -35,7 +36,7 @@ class TaskListFragment : Fragment(R.layout.fragment_task_list) {
         todoDao = appDatabase.todoDao()
         var repository = TaskRepository(todoDao)
         viewModel = ViewModelProvider(this, TodoViewModelFactory(repository)).get(TodoViewModel::class.java)
-        repository.allTasks.observe(this, Observer { todoList ->
+        viewModel.getAllTodos().observe(this, Observer { todoList ->
             todos.clear()
             todos.addAll(todoList)
             todoAdapter.notifyDataSetChanged()

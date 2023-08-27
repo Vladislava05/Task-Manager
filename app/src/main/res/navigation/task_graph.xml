@@ -18,10 +18,11 @@
         android:label="TaskDetailFragment">
         <deepLink
             android:id="@+id/deepLink"
-            app:uri="app://taskmaster.taskDetailFragment?taskBundleKey={taskBundleKey}&amp;taskDateBundleKey={taskDateBundleKey}&amp;taskDescrBundleKey={taskDescrBundleKey}"/>
+            app:uri="app://taskmaster.taskDetailFragment?taskId={taskId}&amp;taskBundleKey={taskBundleKey}&amp;taskDateBundleKey={taskDateBundleKey}&amp;taskDescrBundleKey={taskDescrBundleKey}"/>
         <argument android:name="taskBundleKey" app:argType="string"/>
         <argument android:name="taskDateBundleKey" app:argType="string"/>
         <argument android:name="taskDescrBundleKey" app:argType="string"/>
+        <argument android:name="taskId" app:argType="integer"/>
     </fragment>
     <fragment
         android:id="@+id/taskEditFragment"
@@ -30,9 +31,10 @@
 
         <deepLink
             android:id="@+id/deepLink3"
-            app:uri="app://taskmaster.taskEditFragment?taskBundleKey={taskBundleKey}&amp;taskDateBundleKey={taskDateBundleKey}&amp;taskDescrBundleKey={taskDescrBundleKey}" />
+            app:uri="app://taskmaster.taskEditFragment?taskId={taskId}&amp;taskBundleKey={taskBundleKey}&amp;taskDateBundleKey={taskDateBundleKey}&amp;taskDescrBundleKey={taskDescrBundleKey}" />
         <argument android:name="taskBundleKey" app:argType="string"/>
         <argument android:name="taskDateBundleKey" app:argType="string"/>
         <argument android:name="taskDescrBundleKey" app:argType="string"/>
+        <argument android:name="taskId" app:argType="integer"/>
     </fragment>
 </navigation>

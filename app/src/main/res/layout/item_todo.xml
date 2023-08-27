@@ -37,7 +37,7 @@
         android:layout_width="84dp"
         android:layout_height="40dp"
         android:layout_marginTop="45dp"
-        android:layout_marginEnd="4dp"
+        android:layout_marginEnd="39dp"
         android:layout_marginBottom="32dp"
         android:text="Delete"
         android:textColor="#F45E6D"
@@ -45,9 +45,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.567"
-        app:rippleColor="#F45E6D"
-        />
+        app:layout_constraintVertical_bias="0.675"
+        app:rippleColor="#F45E6D" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

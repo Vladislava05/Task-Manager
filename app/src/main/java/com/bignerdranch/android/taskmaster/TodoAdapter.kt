@@ -11,6 +11,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.net.toUri
+import androidx.lifecycle.Observer
 import androidx.navigation.NavDeepLinkRequest
 import androidx.navigation.findNavController
 
@@ -19,6 +20,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bignerdranch.android.taskmaster.Constants.TASK_BUNDLE_KEY
 import com.bignerdranch.android.taskmaster.Constants.TASK_DATE_BUNDLE_KEY
 import com.bignerdranch.android.taskmaster.Constants.TASK_DESCR_BUNDLE_KEY
+import com.bignerdranch.android.taskmaster.Constants.TASK_ID
 import com.bignerdranch.android.taskmaster.databinding.ItemTodoBinding
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -93,12 +95,9 @@ class TodoAdapter(
 
               tvTodoTitle.setOnClickListener {
                   val request = NavDeepLinkRequest.Builder
-                      .fromUri("${TASK_DETAIL_URI}?${TASK_BUNDLE_KEY}=${curTodo.title}&${TASK_DESCR_BUNDLE_KEY}=${curTodo.description}&${TASK_DATE_BUNDLE_KEY}=${curTodo.date}".toUri())
+                      .fromUri("${TASK_DETAIL_URI}?${TASK_ID}=${curTodo.id}&${TASK_BUNDLE_KEY}=${curTodo.title}&${TASK_DESCR_BUNDLE_KEY}=${curTodo.description}&${TASK_DATE_BUNDLE_KEY}=${curTodo.date}".toUri())
                       .build()
-                  Log.d("MyApp", curTodo.description)
                   findNavController().navigate(request)
-
-
               }
         }
     }

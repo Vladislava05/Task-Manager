@@ -12,6 +12,10 @@ import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.launch
 
 class TodoViewModel(private val repository: TaskRepository): ViewModel() {
+
+    fun getAllTodos(): LiveData<List<Todo>> {
+        return repository.allTasks
+    }
     fun insert(todo: Todo) = viewModelScope.launch {
         repository.insert(todo)
     }
