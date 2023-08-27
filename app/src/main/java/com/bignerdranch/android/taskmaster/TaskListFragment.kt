@@ -75,6 +75,10 @@ class TaskListFragment : Fragment(R.layout.fragment_task_list) {
                 DividerItemDecoration.VERTICAL
             )
         )
+        binding.btnFilter.setOnClickListener {
+            todos.sortBy{it.title}
+            todoAdapter.notifyDataSetChanged()
+        }
     }
 
     override fun onDestroyView() {
