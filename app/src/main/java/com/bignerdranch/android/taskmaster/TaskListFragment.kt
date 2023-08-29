@@ -20,6 +20,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.bignerdranch.android.taskmaster.databinding.FragmentTaskListBinding
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 
 
 class TaskListFragment : Fragment(R.layout.fragment_task_list) {
@@ -76,7 +78,10 @@ class TaskListFragment : Fragment(R.layout.fragment_task_list) {
             )
         )
         binding.btnFilter.setOnClickListener {
-            todos.sortBy{it.title}
+            //todos.sortBy{it.title}
+
+            todos.sortBy{it.date}
+
             todoAdapter.notifyDataSetChanged()
         }
     }
