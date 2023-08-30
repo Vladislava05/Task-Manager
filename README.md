@@ -16,8 +16,8 @@ TaskMaster is a pet project that I have created in order to improve your life an
 <img src="Screenshot_20230830_190124.png?raw=true" width="50%" height="50%"/>|<img src="Screenshot_20230830_190141.png?raw=true" width="50%" height="50%"/>|
 -----------------------------------------------------------------------------|-----------------------------------------------------------------------------|
 
-<img src="Screenshot_20230830_190236.png?raw=true" width="50%" height="50%"/>|
------------------------------------------------------------------------------|
+<img src="Screenshot_20230830_190236.png?raw=true" width="50%" height="50%"/>|<img scr="Screenshot_20230830_195334.png?raw=true" width="50%" height="50%"/>|
+-----------------------------------------------------------------------------|-----------------------------------------------------------------------------|
 
 # Functions
 1. CRUD-functionality
