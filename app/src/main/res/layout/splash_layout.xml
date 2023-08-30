@@ -26,7 +26,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="74dp"
-        android:text="TaskMaster"
+        android:text="@string/app_name"
         android:textSize="32sp"
         android:textColor="#FFF"
         app:layout_constraintEnd_toEndOf="parent"
