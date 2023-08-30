@@ -9,11 +9,13 @@
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="40dp"
         android:fontFamily="sans-serif-medium"
         android:text="Today"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
         android:textColor="#252A31"
         android:textSize="32sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -27,7 +29,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:background="@drawable/baseline_filter_list_24"
-        android:color="#000000"
+        android:backgroundTint="#000000"
         app:layout_constraintEnd_toEndOf="@+id/textView"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -35,7 +37,7 @@
         android:id="@+id/rvTodoItems"
         android:layout_width="338dp"
         android:layout_height="495dp"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="23dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="120dp"
