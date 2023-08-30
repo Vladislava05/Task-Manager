@@ -11,7 +11,6 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavDeepLinkRequest
 import androidx.navigation.fragment.findNavController
-import com.bignerdranch.android.taskmaster.TodoAdapter.Companion.TASK_DETAIL_URI
 import com.bignerdranch.android.taskmaster.TodoAdapter.Companion.TASK_LIST_URI
 import com.bignerdranch.android.taskmaster.databinding.FragmentTaskEditBinding
 import kotlinx.coroutines.GlobalScope

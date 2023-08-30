@@ -1,15 +1,9 @@
 package com.bignerdranch.android.taskmaster
 
-import androidx.core.net.toUri
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
-import androidx.navigation.NavDeepLinkRequest
-import androidx.room.Query
-import kotlinx.coroutines.flow.MutableSharedFlow
-import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.launch
 
 class TodoViewModel(private val repository: TaskRepository): ViewModel() {

@@ -78,9 +78,7 @@ class TaskListFragment : Fragment(R.layout.fragment_task_list) {
             )
         )
         binding.btnFilter.setOnClickListener {
-            //todos.sortBy{it.title}
-
-            todos.sortBy{it.date}
+            todos.sortBy{it.title}
 
             todoAdapter.notifyDataSetChanged()
         }

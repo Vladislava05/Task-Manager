@@ -111,6 +111,8 @@ class TodoAdapter(
         const val TASK_DETAIL_URI = "app://taskmaster.taskDetailFragment"
         const val TASK_LIST_URI ="app://taskmaster.taskListFragment"
         const val TASK_EDIT_URI="app://taskmaster.taskEditFragment"
+        const val REGISTER_FRAGMENT_URI="app://taskmaster.registerFragment"
+        const val LOGIN_FRAGMENT_URI="app://taskmaster.loginFragment"
     }
 
 }
