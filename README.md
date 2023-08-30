@@ -24,4 +24,4 @@ TaskMaster is a pet project that I have created in order to improve your life an
 2. Authentication
 3. Title, description and date for tasks
 4. Filter in abc order
-
+5. Splash screen
